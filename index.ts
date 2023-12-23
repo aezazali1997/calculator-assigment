@@ -2,6 +2,15 @@ import inquirer, { Answers } from 'inquirer';
 import chalk from 'chalk';
 import chalkAnimation from 'chalk-animation';
 
+const confirmNumberValidator = async (input:any) => {
+  if (!/^\d+$/.test(input)) {
+    return 'Please enter a valid number';
+  }
+  return true;
+};
+
+
+
 let operation = '';
 console.log(chalk.greenBright(`
                       888                888        888                   
@@ -33,7 +42,8 @@ const addTwoNumber = async()=>{
     {
       name:'number1',
       type:'number',
-      message:'Enter first Number'
+      message:'Enter first Number',
+      validate:confirmNumberValidator
     }
   ]).then((answer:Answers)=>{
     numberOne = Number(answer.number1)
@@ -42,7 +52,9 @@ const addTwoNumber = async()=>{
     {
       name:'number2',
       type:'number',
-      message:'Enter second Number'
+      message:'Enter second Number',
+      validate:confirmNumberValidator
+
     }
   ]).then((answer:Answers)=>{
     numberTwo = Number(answer.number2)
@@ -59,7 +71,8 @@ const MulTwoNumber = async()=>{
     {
       name:'number1',
       type:'number',
-      message:'Enter first Number'
+      message:'Enter first Number',
+      validate:confirmNumberValidator
     }
   ]).then((answer:Answers)=>{
     numberOne = Number(answer.number1)
@@ -68,7 +81,8 @@ const MulTwoNumber = async()=>{
     {
       name:'number2',
       type:'number',
-      message:'Enter second Number'
+      message:'Enter second Number',
+      validate:confirmNumberValidator
     }
   ]).then((answer:Answers)=>{
     numberTwo = Number(answer.number2)
@@ -85,7 +99,8 @@ const DivideTwoNumber = async()=>{
     {
       name:'number1',
       type:'number',
-      message:'Enter first Number'
+      message:'Enter first Number',
+      validate:confirmNumberValidator
     }
   ]).then((answer:Answers)=>{
     numberOne = Number(answer.number1)
@@ -94,7 +109,8 @@ const DivideTwoNumber = async()=>{
     {
       name:'number2',
       type:'number',
-      message:'Enter second Number'
+      message:'Enter second Number',
+      validate:confirmNumberValidator
     }
   ]).then((answer:Answers)=>{
     numberTwo = Number(answer.number2)
@@ -111,7 +127,8 @@ const SubtractTwoNumber = async()=>{
     {
       name:'number1',
       type:'number',
-      message:'Enter first Number'
+      message:'Enter first Number',
+      validate:confirmNumberValidator
     }
   ]).then((answer:Answers)=>{
     numberOne = Number(answer.number1)
@@ -120,7 +137,8 @@ const SubtractTwoNumber = async()=>{
     {
       name:'number2',
       type:'number',
-      message:'Enter second Number'
+      message:'Enter second Number',
+      validate:confirmNumberValidator
     }
   ]).then((answer:Answers)=>{
     numberTwo = Number(answer.number2)
